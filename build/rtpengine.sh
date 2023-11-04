@@ -1,14 +1,10 @@
 #! /bin/sh
 
-## Add iptables
-iptables -I INPUT -p udp -m udp --dport 5060 -j ACCEPT
-iptables -I INPUT -p tcp -m tcp --dport 5060 -j ACCEPT
-iptables -I INPUT -p tcp -m tcp --dport 5061 -j ACCEPT
-iptables -I INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
-iptables -I INPUT -p tcp -m tcp --dport 9443 -j ACCEPT
-iptables -A INPUT -p udp --dport 10000:20000 -j ACCEPT
+## Unload rules
+iptables --flush
 
-iptables-save > /etc/iptables/rules.v4
+## Reload saved rules
+iptables-restore < /etc/iptables/rules.v4
 
 ## Send ips from env to conf file
 sed -i "s/IPINTERNO/$IPINTERNO/g" /rtpengine.conf
