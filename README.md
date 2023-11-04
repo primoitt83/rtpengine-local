@@ -16,7 +16,9 @@ docker network create --driver=bridge --subnet=172.25.0.0/16 net
 Run this project:
 ````
 cd /opt
-git clone https://github.com/primoitt83/asterisk-local.git
+git clone https://github.com/primoitt83/rtpengine-local.git
+cd rtpengine-local
+docker-compose up -d
 ````
 
 
