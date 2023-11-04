@@ -15,7 +15,8 @@ apt-get install -y \
     libio-socket-inet6-perl \
     libsocket6-perl \
     iptables \
+    iptables-persistent \
     module-assistant \
     /*.deb
 
-apt-get clean; rm -rf /var/lib/apt/* /tmp/* /var/tmp/* /usr/share/doc/*
+apt-get clean; rm -rf /var/lib/apt/* /tmp/* /var/tmp/* /usr/share/doc/* /*.deb

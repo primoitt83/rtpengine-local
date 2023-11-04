@@ -7,7 +7,7 @@
 - install docker;
 - install docker-compose.
 
-Local ip: 192.168.5.
+Local ip: 192.168.5.195
 
 Create "net" network
 ````

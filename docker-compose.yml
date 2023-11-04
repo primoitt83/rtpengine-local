@@ -9,27 +9,17 @@ services:
     restart: always
     privileged: true
     ports:
-      - 25060:25060
-      - 22222:22222
-      - 12222:12222/udp
-      - 9900:9900
-      - 16384-16485:16384-16485/udp
+      - 2223:2223 ## listen-ng
+      - 2230:2230 ## listen-tcp
+      - 2225:2225 ## listen-http
+      - 2231:2231 ## listen-cli
+      - 12222:12222/udp ## listen-udp
+      - 12200-12300:12200-12300/udp ## only few ports for testing, check port_min and port_max bellow
     environment:
-      - NETWORK_MODE=host
-      - RUN_RTPENGINE=yes
-      - LISTEN_TCP=25060
-      - LISTEN_UDP=12222
-      - LISTEN_NG=22222
-      - LISTEN_CLI=9900
-      - TIMEOUT=60
-      - SILENT_TIMEOUT=3600
-      - FORK=no
-      - TABLE=40
-      - NO_FALLBACK=yes
-      - PORT_MIN=16385
-      - PORT_MAX=16485
-      - LOG_LEVEL=6
-      - LOG_FACILITY=local0 
+      - IPINTERNO=172.25.0.8 ## container ip
+      - IPEXTERNO=192.168.5.149 ## local ip
+      - PORT_MIN=10000
+      - PORT_MAX=20000
     networks:
       net:
         ipv4_address: 172.25.0.8
