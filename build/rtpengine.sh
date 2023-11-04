@@ -8,8 +8,6 @@ iptables -I INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
 iptables -I INPUT -p tcp -m tcp --dport 9443 -j ACCEPT
 iptables -A INPUT -p udp --dport 10000:20000 -j ACCEPT
 
-cp /etc/iptables/rules.v4 /etc/iptables/rules.v4.bkp
-
 iptables-save > /etc/iptables/rules.v4
 
 ## Send ips from env to conf file
