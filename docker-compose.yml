@@ -13,8 +13,7 @@ services:
       - 2230:2230 ## listen-tcp
       - 2225:2225 ## listen-http
       - 2231:2231 ## listen-cli
-      - 12222:12222/udp ## listen-udp
-      - 12200-12300:12200-12300/udp ## only few ports for testing, check port_min and port_max bellow
+      - 12200-12300:12200-12300/udp ## listen-udp=12222, check port_min and port_max bellow
     environment:
       - IPINTERNO=172.25.0.8 ## container ip
       - IPEXTERNO=192.168.5.149 ## local ip
