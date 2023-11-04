@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+  rtpengine:
+    container_name: rtpengine
+    build:
+      context: ./build
+      dockerfile: ./Dockerfile
+    restart: always
+    privileged: true
+    ports:
+      - 25060:25060
+      - 22222:22222
+      - 12222:12222/udp
+      - 9900:9900
+      - 16384-16485:16384-16485/udp
+    environment:
+      - NETWORK_MODE=host
+      - RUN_RTPENGINE=yes
+      - LISTEN_TCP=25060
+      - LISTEN_UDP=12222
+      - LISTEN_NG=22222
+      - LISTEN_CLI=9900
+      - TIMEOUT=60
+      - SILENT_TIMEOUT=3600
+      - FORK=no
+      - TABLE=40
+      - NO_FALLBACK=yes
+      - PORT_MIN=16385
+      - PORT_MAX=16485
+      - LOG_LEVEL=6
+      - LOG_FACILITY=local0 
+    networks:
+      net:
+        ipv4_address: 172.25.0.8
+    logging:
+      options:
+        max-size: 100M
+
+networks:
+  net:
+    external: true
