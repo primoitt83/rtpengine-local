@@ -17,6 +17,8 @@ Run this project:
 ````
 cd /opt
 git clone https://github.com/primoitt83/asterisk-local.git
+cd asterisk-local
+docker-compose up -d
 ````
 
 
