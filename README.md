@@ -7,7 +7,7 @@
 - install docker;
 - install docker-compose.
 
-Local ip: 192.168.5.195
+Local ip: 192.168.5.149
 
 Create "net" network
 ````
@@ -16,9 +16,7 @@ docker network create --driver=bridge --subnet=172.25.0.0/16 net
 Run this project:
 ````
 cd /opt
-git clone https://github.com/primoitt83/rtpengine-local.git
-cd rtpengine-local
-docker-compose up -d
+git clone https://github.com/primoitt83/asterisk-local.git
 ````
 
 
